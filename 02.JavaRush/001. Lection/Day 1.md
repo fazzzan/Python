@@ -83,6 +83,10 @@ Keep your token secure and store it safely, it can be used by anyone to control 
 
 ![](../_picturres/image_20250325191814.png)
 
+```
+Важно! Слова async и await обязательно использовать, т.к. библиотека python-telegram-bot полностью асинхронная. Поэтому мы должны тоже писать асинхронные функции – и использовать ключевое слово async перед объявлением наших функций. Перед вызовом же асинхронной функции нужно обязательно писать ключевое слово await.  
+```
+
 ![](../_picturres/image_20250325192103.png)
 
 ![](../_picturres/image_20250325192412.png)

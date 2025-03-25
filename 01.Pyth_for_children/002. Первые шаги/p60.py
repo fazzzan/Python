@@ -1,7 +1,7 @@
 import random
 import string 
 
-terms = ['print', 'input', 'module', 'webbrowser', 'random', 'random.choice', \
+terms = ['print', 'input', 'module', 'webbrowseyr', 'random', 'random.choice', \
          'random.randrange', 'string.punctuation', 'range', 'join', \
          'len', 'replace', 'reversed', 'lower', 'upper', 'break', 'for', \
          'if..elif..else', 'while', 'int', 'float']
