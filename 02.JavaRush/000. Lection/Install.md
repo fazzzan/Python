@@ -34,16 +34,16 @@ https://javarush.com/groups/posts/68451-dopolnenie-i-konspekt-k-zanjatiju-2
 
 Запускаем и создаем проект
 
-![](../_pictures/image_20250325172747.png)
+![](../_picturres/image_20250325172747.png)
 
 Задаем новый путь проектов и устанавливаем менеджер пакетов miniConda
 
-![](../_pictures/image_20250325173342.png)
-![](../_pictures/image_20250325173426.png)
-![](../_pictures/image_20250325173549.png)
+![](../_picturres/image_20250325173342.png)
+![](../_picturres/image_20250325173426.png)
+![](../_picturres/image_20250325173549.png)
 
 важные компоненты IDE
-![](../_pictures/image_20250325175318.png)
+![](../_picturres/image_20250325175318.png)
 
 Задаем переменные окружения
-![](../_pictures/image_20250325185204.png)
+![](../_picturres/image_20250325185204.png)
