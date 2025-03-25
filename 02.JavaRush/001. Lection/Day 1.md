@@ -1,4 +1,5 @@
 # ТЗ
+
 ![](../_picturres/image_20250325175901.png)
 
 ТГ-бот может общаться с другими
@@ -9,15 +10,18 @@
 # Открываем шаблон проекта
 
 Закрываем старый проект
+
 ![](../_picturres/image_20250325180332.png)
 
 Открываем новый
+
 ![](../_picturres/image_20250325180438.png)
 
 Можно задать интерпретатор
 ![](../_picturres/image_20250325180700.png)
 
 # Установка через интерпретатор библиотек
+
 ![](../_picturres/image_20250325181252.png)
 ```
 pip install python-telegram-bot
@@ -31,12 +35,16 @@ pip install openai
 ![](../_picturres/image_20250325185603.png)
 
 # Первый запуск
+
 Все с ошибками, так как еще не получен Бот-токен
+
 ![](../_picturres/image_20250325185759.png)
 ![](../_picturres/image_20250325185832.png)
 
 # Регистрация бота в ТГ
+
 Через botfather
+
 ![](../_picturres/image_20250325190119.png)
 
 ```
@@ -61,14 +69,18 @@ Keep your token secure and store it safely, it can be used by anyone to control 
 ![](../_picturres/image_20250325190727.png)
 
 # Второй запуск
+
 Уже без ошибок
+
 ![](../_picturres/image_20250325190820.png)
+
 И мы можем уже зайти в этого бота и посмотреть что с ним:
 
 ![](../_picturres/image_20250325191015.png)
 
 Можно нажать кнопку START, ничего не произойдет, написанного кода - нет
 Добавим код, теперь печать любого слова в ТГ вызовет ответное приветствие
+
 ![](../_picturres/image_20250325191814.png)
 
 ![](../_picturres/image_20250325192103.png)
@@ -76,13 +88,16 @@ Keep your token secure and store it safely, it can be used by anyone to control 
 ![](../_picturres/image_20250325192412.png)
 
 ## MD в ТГ
+
 ![](../_picturres/image_20250325192533.png)
 
 ## Вывод в чат доп. информации
 ### Фото
+
 ![](../_picturres/image_20250325193024.png)
  ![](../_picturres/image_20250325193137.png)
 ### Кнопки
+
 ![](../_picturres/image_20250325193526.png)
 ![](../_picturres/image_20250325193624.png)
 
@@ -90,10 +105,13 @@ Keep your token secure and store it safely, it can be used by anyone to control 
  ![](../_picturres/image_20250325194040.png)
 
 ### START
+
 ![](../_picturres/image_20250325194919.png)
 
 ![](../_picturres/image_20250325195559.png)
+
 Исправляем ошибку
+
 ![](../_picturres/image_20250325195827.png)
 ![](../_picturres/image_20250325200016.png)
 
