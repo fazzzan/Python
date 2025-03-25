@@ -1,5 +1,5 @@
 # ТЗ
-![](_Pictures/image_20250325175901.png)
+![](../_pictures/image_20250325175901.png)
 
 ТГ-бот может общаться с другими
 1. Общаться с чатом GPT
@@ -9,16 +9,16 @@
 # Открываем шаблон проекта
 
 Закрываем старый проект
-![](_Pictures/image_20250325180332.png)
+![](../_pictures/image_20250325180332.png)
 
 Открываем новый
-![](_Pictures/image_20250325180438.png)
+![](../_pictures/image_20250325180438.png)
 
 Можно задать интерпретатор
-![](_Pictures/image_20250325180700.png)
+![](../_pictures/image_20250325180700.png)
 
 # Установка через интерпретатор библиотек
-![](_Pictures/image_20250325181252.png)
+![](../_pictures/image_20250325181252.png)
 ```
 pip install python-telegram-bot
 ```
@@ -28,16 +28,16 @@ pip install python-telegram-bot
 pip install openai
 ```
 
-![](_Pictures/image_20250325185603.png)
+![](../_pictures/image_20250325185603.png)
 
 # Первый запуск
 Все с ошибками, так как еще не получен Бот-токен
-![](_Pictures/image_20250325185759.png)
-![](_Pictures/image_20250325185832.png)
+![](../_pictures/image_20250325185759.png)
+![](../_pictures/image_20250325185832.png)
 
 # Регистрация бота в ТГ
 Через botfather
-![](_Pictures/image_20250325190119.png)
+![](../_pictures/image_20250325190119.png)
 
 ```
 /newbot
@@ -53,50 +53,50 @@ Use this token to access the HTTP API:
 Keep your token secure and store it safely, it can be used by anyone to control your bot.
 ```
 
-![](_Pictures/image_20250325190533.png)
+![](../_pictures/image_20250325190533.png)
 
 ТГ-токен - замена пары логин/пасс для ТГ
 
-![](_Pictures/image_20250325190652.png)
-![](_Pictures/image_20250325190727.png)
+![](../_pictures/image_20250325190652.png)
+![](../_pictures/image_20250325190727.png)
 
 # Второй запуск
 Уже без ошибок
-![](_Pictures/image_20250325190820.png)
+![](../_pictures/image_20250325190820.png)
 И мы можем уже зайти в этого бота и посмотреть что с ним:
 
-![](_Pictures/image_20250325191015.png)
+![](../_pictures/image_20250325191015.png)
 
 Можно нажать кнопку START, ничего не произойдет, написанного кода - нет
 Добавим код, теперь печать любого слова в ТГ вызовет ответное приветствие
-![](_Pictures/image_20250325191814.png)
+![](../_pictures/image_20250325191814.png)
 
-![](_Pictures/image_20250325192103.png)
+![](../_pictures/image_20250325192103.png)
 
-![](_Pictures/image_20250325192412.png)
+![](../_pictures/image_20250325192412.png)
 
 ## MD в ТГ
-![](_Pictures/image_20250325192533.png)
+![](../_pictures/image_20250325192533.png)
 
 ## Вывод в чат доп. информации
 ### Фото
-![](_Pictures/image_20250325193024.png)
- ![](_Pictures/image_20250325193137.png)
+![](../_pictures/image_20250325193024.png)
+ ![](../_pictures/image_20250325193137.png)
 ### Кнопки
-![](_Pictures/image_20250325193526.png)
-![](_Pictures/image_20250325193624.png)
+![](../_pictures/image_20250325193526.png)
+![](../_pictures/image_20250325193624.png)
 
 Чтобы при нажатии на кнопки что-то происходило - надо добавить хэндлер
- ![](_Pictures/image_20250325194040.png)
+ ![](../_pictures/image_20250325194040.png)
 
 ### START
-![](_Pictures/image_20250325194919.png)
+![](../_pictures/image_20250325194919.png)
 
-![](_Pictures/image_20250325195559.png)
+![](../_pictures/image_20250325195559.png)
 Исправляем ошибку
-![](_Pictures/image_20250325195827.png)
-![](_Pictures/image_20250325200016.png)
+![](../_pictures/image_20250325195827.png)
+![](../_pictures/image_20250325200016.png)
 
-![](_Pictures/image_20250325200151.png)
+![](../_pictures/image_20250325200151.png)
 
-![](_Pictures/image_20250325200325.png)
+![](../_pictures/image_20250325200325.png)

@@ -4,4 +4,4 @@ import string
 print(string.punctuation)
 ```
 
-![](../../../01.Pyth_for_children/_Pictures/Pasted_image_20250307225841.png)
+![](../../../01.Pyth_for_children/_pictures/Pasted_image_20250307225841.png)
