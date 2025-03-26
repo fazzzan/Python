@@ -1,3 +1,4 @@
+[Ссылка на конспект](https://javarush.com/groups/posts/68450-predvariteljhnaja-podgotovka-i-konspekt-k-zanjatiju-1)
 # ТЗ
 
 ![](../_picturres/image_20250325175901.png)

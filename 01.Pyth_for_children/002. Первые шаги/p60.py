@@ -1,7 +1,7 @@
 import random
 import string 
 
-terms = ['print', 'input', 'module', 'webbrowseyr', 'random', 'random.choice', \
+terms = ['print', 'input', 'module', 'webbrowser', 'random', 'random.choice', \
          'random.randrange', 'string.punctuation', 'range', 'join', \
          'len', 'replace', 'reversed', 'lower', 'upper', 'break', 'for', \
          'if..elif..else', 'while', 'int', 'float']
@@ -67,28 +67,43 @@ def check_lives():
     global secret_len
     global string
     global winner
+    global unknown_letters
+    unknown_letters = len(secret_term)
     while lives > 0:
-        print(string)
-        print('Осталось жизней: ' + heart_symbol * lives)
-        ind = terms.index(secret_term)
-        print('Термин имеет отношение к ' + descr[ind])
-        letter_in_secret = input('Угадайте букву или слово целиком: ')
-        print(letter_in_secret + ' - ' + secret_term)
-        if letter_in_secret == '':
-            print('Это неспортивно, снимаю 1 жизнь')
-            lives = lives - 1        
-        elif letter_in_secret == secret_term:
+        if unknown_letters > 0:
+            print(string)
+            print('Осталось жизней: ' + heart_symbol * lives)
+            ind = terms.index(secret_term)
+            print('Термин имеет отношение к ' + descr[ind])
+            letter_in_secret = input('Угадайте букву или слово целиком: ')
+#        print(letter_in_secret + ' - ' + secret_term)
+            print(letter_in_secret)
+            if letter_in_secret == '':
+                print('Это неспортивно, снимаю 1 жизнь')
+                lives = lives - 1
+            elif letter_in_secret == secret_term:
+                print('Вы угадали термин: ' + secret_term)
+                ind = terms.index(secret_term)
+                done[ind] = '+'
+                print(done)
+                break
+            elif letter_in_secret in secret_term:
+                # передаем на проверку букву, термин, строку ???????
+                string = update_string(letter_in_secret, secret_term, string)
+                aaa = secret_term.count(letter_in_secret)
+                while aaa > 0:
+                    unknown_letters = unknown_letters - 1
+                    aaa = aaa - 1
+#                print(str(unknown_letters))
+            else:
+                print('Неправильно, -1 жизнь потеряна')
+                lives = lives - 1
+        else:
             print('Вы угадали термин: ' + secret_term)
             ind = terms.index(secret_term)
             done[ind] = '+'
             print(done)
             break
-        elif letter_in_secret in secret_term:   
-            # передаем на проверку букву, термин, строку ???????     
-            string = update_string(letter_in_secret, secret_term, string)
-        else:
-            print('Неправильно, -1 жизнь потеряна')
-            lives = lives - 1
 
 oncemore = input('Практикуем термины y/n[y]?')
 if oncemore == '':

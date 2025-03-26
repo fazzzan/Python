@@ -1,3 +1,4 @@
+[Ссылка на конспект](https://javarush.com/groups/posts/68451-dopolnenie-i-konspekt-k-zanjatiju-2)
 # Добавим немного GPT
 
 Добавим определение функции gpt и хэндлер, который будет использовать функцию
