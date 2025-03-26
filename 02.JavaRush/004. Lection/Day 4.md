@@ -1,4 +1,4 @@
-[Ссылка на конспект]()
+[Ссылка на конспект](https://javarush.com/groups/posts/68453-dopolnenie-i-konspekt-k-zanjatiju-4)
 Осталось реализовать 2 команды:
 ![](../_picturres/image_20250326193459.png)
 # Поддержка команды Profile
