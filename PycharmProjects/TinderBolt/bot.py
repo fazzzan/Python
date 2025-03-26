@@ -18,6 +18,13 @@ async def start(update, context):
         "gpt": "задать вопрос чату GPT 🧠"
     })
 
+async def date (update, context):
+    dialog.mode = "date"
+    text_date = load_message("date")
+    await send_photo(update, context, "date")
+    await send_text(update, context, text_date)
+
+
 async def gpt(update, context):
     dialog.mode = "gpt"
     text = load_message("gpt")
@@ -63,6 +70,7 @@ chatgpt = ChatGptService(token="gpt:AgyOcazJ_9quXv71Cmo5u2qL1h_yytAiMaLywhYDr4xf
 
 app = ApplicationBuilder().token("7655264179:AAE1LTOG7pDmaphBpFCmRE32rCF-uavuyxY").build()
 app.add_handler(CommandHandler("start", start))
+app.add_handler(CommandHandler("date", date))
 app.add_handler(CommandHandler("gpt", gpt))
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, hello))
 app.add_handler(CallbackQueryHandler(hello_button))

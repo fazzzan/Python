@@ -10,19 +10,19 @@
 
 Необходим чтобы бот различал режим общения, то есть контекст в рамках которого происходит общение
 
-![](_picturres/image_20250325224720.png)
+![](../_picturres/image_20250325224720.png)
 
-![](_picturres/image_20250325224849.png)
+![](../_picturres/image_20250325224849.png)
 
 Укажем в функциях нужный контекст
 
-![](_picturres/image_20250325225224.png)
+![](../_picturres/image_20250325225224.png)
 
 И теперь научим бота обрабатывать ответ в рамках контекста в функции, которая описывает ответ бота на сообщение пользователя
 
-![](_picturres/image_20250325225704.png)
+![](../_picturres/image_20250325225704.png)
 
-![](_picturres/image_20250325230322.png)
+![](../_picturres/image_20250325230322.png)
 
 
 # Ещё GPT
@@ -30,47 +30,47 @@
 У GPT WEB - есть ограничения по количеству запросов. 
 У GPT API - ограничений нет, но оплачивается трафик, который будет генериться вашим приложением.
 Лучше использовать более дешевую модель, поэтому для публичных чатов используем
-![](_picturres/image_20250326000048.png)
+![](../_picturres/image_20250326000048.png)
 
 Чтобы прикрутить GPT, надо:
 - знать токен (gpt:AgyOcazJ_9quXv71Cmo5u2qL1h_yytAiMaLywhYDr4xfoPUGP5gydVoBSJn5uc3GqTuBPJbtubJFkblB3TDn6T_un4buKEeUskeZ643kOrIteowKr2YUyjnyrDJyERTkMvgCT-Qm0H05svs_TEjdX546CNgN)
 
-![](_picturres/image_20250325233844.png)
+![](../_picturres/image_20250325233844.png)
 
 - создать объект чата GPT
 
-![](_picturres/image_20250325234049.png)
+![](../_picturres/image_20250325234049.png)
 
 - передать параметры в созданный объект через **prompt** - конструкцию используемую GPT для идентификации вопроса
 
-![](_picturres/image_20250325234514.png)
+![](../_picturres/image_20250325234514.png)
 
-![](_picturres/image_20250325234736.png)
-![](_picturres/image_20250325235726.png)
+![](../_picturres/image_20250325234736.png)
+![](../_picturres/image_20250325235726.png)
 
 
 результаты выполнения ответа на вопросы GPT
 
-![](_picturres/image_20250325235755.png)
+![](../_picturres/image_20250325235755.png)
 
 
 Бест практис - оформлять код ссылаясь на заране заполненные формулировки из текстовых файлов
 
-![](_picturres/image_20250326002135.png)
+![](../_picturres/image_20250326002135.png)
 
 # Заполнение MENU
 
 Меню - такой объект, который используется для сокращения времени поиска по заявленным п.п. Меню
 
-![](_picturres/image_20250326002351.png)
+![](../_picturres/image_20250326002351.png)
 
 Для передачи в меню списка команд используется функция
 ```
 async def show_main_menu(update: Update, context: ContextTypes.DEFAULT_TYPE, commands: dict)
 ```
 
-![](_picturres/image_20250326002444.png)
+![](../_picturres/image_20250326002444.png)
 
-![](_picturres/image_20250326003840.png)
+![](../_picturres/image_20250326003840.png)
 
 
