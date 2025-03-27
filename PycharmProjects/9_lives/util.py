@@ -45,7 +45,7 @@ async def send_text_buttons(update: Update, context: ContextTypes.DEFAULT_TYPE, 
 
 # посылает в чат фото
 async def send_photo(update: Update, context: ContextTypes.DEFAULT_TYPE, name: str) -> Message:
-    with open('resources/images/' + name + ".jpg", 'rb') as photo:
+    with open('resources/images/' + name + ".png", 'rb') as photo:
         return await context.bot.send_photo(chat_id=update.effective_chat.id, photo=photo)
 
 
@@ -61,16 +61,20 @@ async def hide_main_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await context.bot.delete_my_commands(scope=BotCommandScopeChat(chat_id=update.effective_chat.id))
     await context.bot.set_chat_menu_button(menu_button=MenuButtonDefault(), chat_id=update.effective_chat.id)
 
+# загружает сообщение из папки  /resources/messages/
+def load_message(name):
+    with open("resources/messages/" + name + ".txt", "r", encoding="utf8") as file:
+        return file.read()
 
 # загружает термины из папки  /resources/terms/
 def load_terms(name):
     with open("resources/terms/" + name + ".txt", "r", encoding="utf8") as file:
-        return file.read()
+        return file.read().splitlines()
 
 # загружает описание из папки  /resources/terms/
 def load_descr(name):
     with open("resources/terms/" + name + ".txt", "r", encoding="utf8") as file:
-        return file.read()
+        return file.read().splitlines()
 
 
 # загружает промпт из папки  /resources/messages/

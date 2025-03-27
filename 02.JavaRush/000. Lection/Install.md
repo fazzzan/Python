@@ -1,3 +1,6 @@
+Консультация на скидку
+https://forms.kommo.com/rtwcwtv
+
 PyCharm Community Edition Windows
 https://download.jetbrains.com/python/pycharm-community-2024.3.5.exe
 Другие версии 

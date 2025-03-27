@@ -262,6 +262,7 @@ dialog.count = 0
 chatgpt = ChatGptService(
     token="gpt:AgyOcazJ_9quXv71Cmo5u2qL1h_yytAiMaLywhYDr4xfoPUGP5gydVoBSJn5uc3GqTuBPJbtubJFkblB3TDn6T_un4buKEeUskeZ643kOrIteowKr2YUyjnyrDJyERTkMvgCT-Qm0H05svs_TEjdX546CNgN")
 
+# Подключаемся к чату
 app = ApplicationBuilder().token("7655264179:AAE1LTOG7pDmaphBpFCmRE32rCF-uavuyxY").build()
 # Обработчики команд
 app.add_handler(CommandHandler("start", start))
