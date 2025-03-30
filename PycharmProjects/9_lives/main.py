@@ -65,7 +65,7 @@ async def game(update, context):
     dialog.term_choice = random.randrange(1, dialog.len)
     dialog.secret_term = terms[dialog.term_choice]
     dialog.secret_len = len(dialog.secret_term)
-    await send_text(update, context, "Длина слова: " + str(dialog.secret_len))
+    await send_text(update, context, "Длина термина: " + str(dialog.secret_len))
     secret_index = 0
     dialog.string = []
     while secret_index < dialog.secret_len:
@@ -76,6 +76,7 @@ async def game(update, context):
     await send_text(update, context, "термин зашифрован: " + str("".join(dialog.string)))
 
 async def game_dialog(update, context):
+    dialog.mode = "game"
     text = update.message.text.lower()
 #    await send_text(update, context, str("".join(dialog.string)))
     dialog.string1 = update_string(text, dialog.secret_term, dialog.string)
@@ -85,13 +86,26 @@ async def game_dialog(update, context):
     else:
         await send_text(update, context, "Оператор угадан, поздравляю")
         await send_photo(update, context, dialog.string1)
-        await start(update, context)
+        await send_text_buttons(update, context, "Еще раз?", {
+            "game_start": "да",
+            "game_stop": "нет"
+        })
+#        await game_button(update, context)
 #    secret_index = 0
 #    dialog.string = []
 #    while secret_index < dialog.secret_len:
 #        dialog.string.append(dialog.string1[secret_index])
 #        secret_index += 1
 
+async def game_button (update, context):
+    query = update.callback_query.data
+    await update.callback_query.answer()
+    if query == "game_start":
+        query_date = "да"
+        await game(update, context)
+    elif query == "game_stop":
+        query_date = "нет"
+        await send_text(update, context, "Нет - так нет. Приятно было поиграть.")
 
 
 def update_string(letter, word, string):
@@ -134,7 +148,7 @@ app.add_handler(CommandHandler("game", game))
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, hello))
 
 # Обработчик нажатий на кнопки с шаблоном передаваемых значений в виде регулярки
-# app.add_handler(CallbackQueryHandler(show_button, pattern = '^show_.*'))
+app.add_handler(CallbackQueryHandler(game_button, pattern="^game_.*"))
 
 # Обработчик нажатий на остальные кнопки
 app.add_handler(CallbackQueryHandler(hello_button))

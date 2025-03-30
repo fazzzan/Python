@@ -19,3 +19,4 @@ if..elif..else
 while
 int
 float
+variable
