@@ -1,5 +1,11 @@
+abs
+min
+max
+pow
+round
 print
 input
+map(int, input().split())
 module
 webbrowser
 random
@@ -20,3 +26,4 @@ while
 int
 float
 variable
+type
