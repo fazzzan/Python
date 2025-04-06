@@ -32,9 +32,9 @@ async def start(update, context):
     text = load_message("main")
     await send_text(update, context, text)
     await show_main_menu(update, context, {
-        "start ": "главное меню бота",
+        "start ": "Главное меню бота",
         "show ": "Показать изучаемые термины",
-        "game ": "игра в угадай термин"
+        "game ": "Игра в угадай термин"
     })
 
 async def show(update, context):
