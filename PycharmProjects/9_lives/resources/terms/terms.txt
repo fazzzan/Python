@@ -5,6 +5,7 @@ pow()
 round()
 print()
 input()
+split()
 map(int, input().split())
 module
 webbrowser
@@ -27,3 +28,10 @@ int()
 float()
 variable
 type()
+title()
+capitalize()
+swapcase()
+find()
+rfind()
+index()
+count()
