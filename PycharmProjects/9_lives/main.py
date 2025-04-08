@@ -11,6 +11,7 @@ from util import *
 # тут будем писать наш код :)
 heart_symbol = u'\u2764'
 
+# основной обработчик
 async def hello(update, context):
     if dialog.mode == "show":
         await show_dialog(update,context)
@@ -22,13 +23,15 @@ async def hello(update, context):
         await send_text(update, context, "_Как дела?_")
         await send_text(update, context, "Вы написали: " + update.message.text)
 
+# обработчик нажатия кнопки
 async def hello_button(update, context):
     query = update.callback_query.data
     await update.callback_query.answer()
 
+# Пригласительный текст главного меню из файла main.txt
 async def start(update, context):
     dialog.mode = "main"
-    # Пригласительный текст из messages
+    # текст главного меню из файла main.txt
     text = load_message("main")
     await send_text(update, context, text)
     await show_main_menu(update, context, {
@@ -37,15 +40,17 @@ async def start(update, context):
         "game ": "Игра в угадай термин"
     })
 
+# пролистываем изучаемые термины через дефис
 async def show(update, context):
     dialog.mode = "show"
     # Пригласительный текст из messages
     text = load_message("show")
     await send_text(update, context, text)
-
+    # загрузка терминов и описаний в список(массив данных)
     terms = load_terms("terms")
     descr = load_descr("descr")
     dialog.len = len(terms)
+    # пролистывание терминов
     while dialog.len > 0:
         # Отправка текста в ТГ
         await send_text(update, context, terms[dialog.len-1] + " - " + descr[dialog.len-1])
@@ -55,6 +60,9 @@ async def show_dialog(update, context):
     text = update.message.text
     await send_text(update, context, text)
 
+    # надо придумать как оптимизировать показ данных из массива, чтобы он повторялись по алгоритму "Интервальные повторения"
+    # конкретная формула: Y=2X+1, где Y означает день, когда информация начнет забываться, а X — день последнего повторения.
+    # Таким образом, если вы выучили информацию, например, неделю назад, то повторить ее вам нужно будет через 8 дней.
 async def game(update, context):
     dialog.mode = "game"
     text = load_message("game")
@@ -62,7 +70,11 @@ async def game(update, context):
     terms = load_terms("terms")
     descr = load_descr("descr")
     dialog.len = len(terms)
-    dialog.term_choice = random.randrange(1, dialog.len)
+
+    dialog.term_choice = random.choice([e for e in range(dialog.len) if e not in dialog.ind_choice])
+    dialog.ind_choice.append(dialog.term_choice)
+#    dialog.term_choice = random.randrange(1, dialog.len)
+
     dialog.secret_term = terms[dialog.term_choice]
     dialog.secret_len = len(dialog.secret_term)
     await send_text(update, context, "Длина термина: " + str(dialog.secret_len))
@@ -84,12 +96,15 @@ async def game_dialog(update, context):
         await send_text(update, context, dialog.string1)
         dialog.string = dialog.string1
     else:
-        await send_text(update, context, "Оператор угадан, поздравляю")
+        await send_text(update, context, "Термин угадан, поздравляю, повторили " + str(len(dialog.ind_choice)) + " из " + str(dialog.len))
         await send_photo(update, context, dialog.string1)
-        await send_text_buttons(update, context, "Еще раз?", {
-            "game_start": "да",
-            "game_stop": "нет"
-        })
+        if len(dialog.ind_choice) < dialog.len:
+            await send_text_buttons(update, context, "Еще раз?", {
+                "game_start": "да",
+                "game_stop": "нет"
+            })
+        else:
+            await send_text(update, context, "Коллега, вы повторили все термины, приятно было поиграть.")
 #        await game_button(update, context)
 #    secret_index = 0
 #    dialog.string = []
@@ -136,6 +151,7 @@ dialog.secret_len = 0
 dialog.index = 0
 dialog.string = []
 dialog.string1 = []
+dialog.ind_choice = []
 
 # Подключаемся к чату
 app = ApplicationBuilder().token("7655264179:AAE1LTOG7pDmaphBpFCmRE32rCF-uavuyxY").build()

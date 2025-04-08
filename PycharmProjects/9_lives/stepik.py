@@ -1,2 +1,2 @@
-s = 'Год за годом растут БОЛЬШИЕ города!'
-print(s.swapcase())   # 'гОД ЗА ГОДОМ РАСТУТ большие ГОРОДА!'
+text = 'SUPER-MAN'
+print(text.isupper())
