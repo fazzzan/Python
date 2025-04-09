@@ -1,2 +1,2 @@
-text = 'SUPER-MAN'
-print(text.isupper())
+s = input()
+print(s.strip("-_!?"))

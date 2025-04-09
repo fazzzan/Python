@@ -97,7 +97,8 @@ async def game_dialog(update, context):
         dialog.string = dialog.string1
     else:
         await send_text(update, context, "Термин угадан, поздравляю, повторили " + str(len(dialog.ind_choice)) + " из " + str(dialog.len))
-        await send_photo(update, context, dialog.string1)
+        #await send_photo(update, context, dialog.string1)
+        await send_photo(update, context, str(dialog.term_choice))
         if len(dialog.ind_choice) < dialog.len:
             await send_text_buttons(update, context, "Еще раз?", {
                 "game_start": "да",
