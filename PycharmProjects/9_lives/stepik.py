@@ -1,2 +1,2 @@
-s = input()
-print(s.strip("-_!?"))
+s = input("Вводим строку, не стесняемся: ")  
+print("а" in s)
