@@ -33,10 +33,11 @@ async def start(update, context):
     dialog.mode = "main"
     # текст главного меню из файла main.txt
     text = load_message("main")
-    await send_text(update, context, text)
+    await send_html(update, context, text)
     await show_main_menu(update, context, {
         "start "  : "Главное меню бота",
         "show "   : "Термины всех разделов",
+        "game ": "Игра в угадай термин",
         "show1_3 ": "Термины раздела 1.3",
         "show1_5 ": "Термины раздела 1.5",
         "show1_7 ": "Термины раздела 1.7",
@@ -44,8 +45,7 @@ async def start(update, context):
         "show2_1 ": "Термины раздела 2.1",
         "show2_4 ": "Термины раздела 2.4",
         "show2_7 ": "Термины раздела 2.7",
-        "show2_9": "Термины раздела 2.9",
-        "game "   : "Игра в угадай термин"
+        "show2_9": "Термины раздела 2.9"
     })
 
 # пролистываем изучаемые термины через дефис
@@ -251,9 +251,11 @@ async def show_dialog(update, context):
     # конкретная формула: Y=2X+1, где Y означает день, когда информация начнет забываться, а X — день последнего повторения.
     # Таким образом, если вы выучили информацию, например, неделю назад, то повторить ее вам нужно будет через 8 дней.
 async def game(update, context):
-    text = """текущий режим - {0}""".format(dialog.mode)
+    # text = """текущий режим - {0}""".format(dialog.mode)
+    # await send_html(update, context, text)
+    text = load_message("game")
+    await send_text(update, context, text)
 
-    await send_html(update, context, text)
     terms_all = load_terms("terms")
     descr_all = load_descr("descr")
     dialog.len = len(terms_all)
@@ -278,8 +280,8 @@ async def game(update, context):
 
     elif dialog.mode == "show1_3" or dialog.mode == "game1_3":
         dialog.mode = "game1_3"
-        text = load_message("game")
-        await send_text(update, context, text)
+        #text = load_message("game")
+        #await send_text(update, context, text)
         dialog.len = len(terms_all)
 
         # запоминание терминов нужного раздела
@@ -296,8 +298,8 @@ async def game(update, context):
 
     elif dialog.mode == "show1_5" or dialog.mode == "game1_5":
         dialog.mode = "game1_5"
-        text = load_message("game")
-        await send_text(update, context, text)
+        #text = load_message("game")
+        #await send_text(update, context, text)
         dialog.len = len(terms_all)
 
         # запоминание терминов нужного раздела
@@ -314,8 +316,8 @@ async def game(update, context):
 
     elif dialog.mode == "show1_7" or dialog.mode == "game1_7":
         dialog.mode = "game1_7"
-        text = load_message("game")
-        await send_text(update, context, text)
+        #text = load_message("game")
+        #await send_text(update, context, text)
         dialog.len = len(terms_all)
 
         # запоминание терминов нужного раздела
@@ -349,8 +351,8 @@ async def game(update, context):
 
     elif dialog.mode == "show2_1" or dialog.mode == "game2_1":
         dialog.mode = "game2_1"
-        text = load_message("game")
-        await send_text(update, context, text)
+        #text = load_message("game")
+        #await send_text(update, context, text)
         dialog.len = len(terms_all)
 
         # запоминание терминов нужного раздела
@@ -384,8 +386,8 @@ async def game(update, context):
         dialog.len = len(terms)
     elif dialog.mode == "show2_7" or dialog.mode == "game2_7":
         dialog.mode = "game2_7"
-        text = load_message("game")
-        await send_text(update, context, text)
+        #text = load_message("game")
+        #await send_text(update, context, text)
         dialog.len = len(terms_all)
 
         # запоминание терминов нужного раздела
@@ -401,8 +403,8 @@ async def game(update, context):
         dialog.len = len(terms)
     elif dialog.mode == "show2_9" or dialog.mode == "game2_9":
         dialog.mode = "game2_9"
-        text = load_message("game")
-        await send_text(update, context, text)
+        #text = load_message("game")
+        #await send_text(update, context, text)
         dialog.len = len(terms_all)
 
         # запоминание терминов нужного раздела
@@ -435,19 +437,19 @@ async def game(update, context):
         dialog.string.append('?')
         secret_index += 1
 
-    await send_text(update, context, "термин связан с понятием: " + descr[dialog.term_choice])
+    await send_html(update, context, "термин связан с понятием: " + descr[dialog.term_choice])
     await send_text(update, context, "термин зашифрован: " + str("".join(dialog.string)))
     dialog.err = False
 
 async def game_dialog(update, context):
     if dialog.mode == "game" or dialog.mode == "game1_3" or dialog.mode == "game1_5" or dialog.mode == "game1_7" or dialog.mode == "game1_11" or dialog.mode == "game2_1" or dialog.mode == "game2_4" or dialog.mode == "game2_7" or dialog.mode == "game2_9":
-        text = update.message.text.lower()
+        text = update.message.text
     #    await send_text(update, context, str("".join(dialog.string)))
-        dialog.string1 = update_string(text, dialog.secret_term.lower(), dialog.string)
-        await send_text(update, context,
-                        """{0} из {1}""".format(str(dialog.string1.lower()), str(dialog.secret_term.lower())))
-        if dialog.string1.lower() != dialog.secret_term.lower():
-            await send_text(update, context, dialog.string1)
+        dialog.string1 = update_string(text, dialog.secret_term, dialog.string)
+        await send_html(update, context,
+                        """{0} из {1}""".format(str(dialog.string1), str(dialog.secret_term)))
+        if dialog.string1 != dialog.secret_term:
+            await send_html(update, context, dialog.string1)
             dialog.string = dialog.string1
             dialog.err = True
         else:
@@ -473,7 +475,7 @@ async def game_dialog(update, context):
                     text = "Коллега, вы повторили {n1} термин из {n}, раздела {n2}.".format(n1 = len(dialog.ind_choice), n = dialog.len, n2 = str(dialog.mode.replace('game', '')))
                 else:
                     text = "Коллега, вы повторили {n1} терминов из {n}, раздела {n2}.".format(n1=len(dialog.ind_choice), n=dialog.len, n2 = str(dialog.mode.replace('game', '')))
-                await send_text(update, context, text)
+                await send_html(update, context, text)
                 dialog.ind_choice = []
 #        await game_button(update, context)
 #    secret_index = 0
