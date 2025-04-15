@@ -1,3 +1,4 @@
-x = 7
-y = 3
-print(f"Результат {x} + {y} = {f"{x + y}"}")
+text = input()
+print(f"|{text:&^20}|")
+print(f"|{text:&>20}|")
+print(f"|{text:&<20}|")
