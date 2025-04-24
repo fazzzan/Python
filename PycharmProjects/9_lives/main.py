@@ -13,9 +13,15 @@ heart_symbol = u'\u2764'
 
 # основной обработчик
 async def hello(update, context):
-    if dialog.mode == "show" or dialog.mode == "show1_3":
+    if dialog.mode == "show" or dialog.mode == "show1_3" or dialog.mode == "show1_5" or dialog.mode == "show1_7" \
+        or dialog.mode == "show1_11" or dialog.mode == "show2_1" or dialog.mode == "show2_4" \
+        or dialog.mode == "show2_7" or dialog.mode == "show2_9" or dialog.mode == "show2_10" \
+        or dialog.mode == "show2_12":
         await show_dialog(update,context)
-    if dialog.mode == "game" or dialog.mode == "game1_3" or dialog.mode == "game1_5" or dialog.mode == "game1_7" or dialog.mode == "game1_11" or dialog.mode == "game2_1" or dialog.mode == "game2_4" or dialog.mode == "game2_7" or dialog.mode == "game2_9":
+    if dialog.mode == "game" or dialog.mode == "game1_3" or dialog.mode == "game1_5" or dialog.mode == "game1_7" \
+        or dialog.mode == "game1_11" or dialog.mode == "game2_1" or dialog.mode == "game2_4" \
+        or dialog.mode == "game2_7" or dialog.mode == "game2_9" or dialog.mode == "game2_10" \
+        or dialog.mode == "game2_12":
         await game_dialog(update,context)
     else:
         # Отправка текста в ТГ
@@ -36,8 +42,9 @@ async def start(update, context):
     await send_html(update, context, text)
     await show_main_menu(update, context, {
         "start "  : "Главное меню бота",
-        "show "   : "Термины всех разделов",
+#        "show "   : "Термины всех разделов",
         "game ": "Игра в угадай термин",
+#        "game_lite ": "Облегченная игра в угадай термин",
         "show1_3 ": "Термины раздела 1.3",
         "show1_5 ": "Термины раздела 1.5",
         "show1_7 ": "Термины раздела 1.7",
@@ -45,7 +52,9 @@ async def start(update, context):
         "show2_1 ": "Термины раздела 2.1",
         "show2_4 ": "Термины раздела 2.4",
         "show2_7 ": "Термины раздела 2.7",
-        "show2_9": "Термины раздела 2.9"
+        "show2_9": "Термины раздела 2.9",
+        "show2_10": "Термины раздела 2.10",
+        "show2_12": "Термины раздела 2.12"
     })
 
 # пролистываем изучаемые термины через дефис
@@ -79,9 +88,9 @@ async def show1_3(update, context):
     dialog.len = len(terms)
     iterms1_3 = []
     # пролистывание терминов
-    while dialog.len >= 0:
+    while dialog.len >= 1:
        # await send_text(update, context, terms[dialog.len - 1] + " - " + descr[dialog.len - 1] + str(terms[dialog.len-1].startswith('1.3')))
-        if terms[dialog.len-1].startswith('1.3') == True:
+        if terms[dialog.len-1].startswith('1.3;') == True:
             iterms1_3.append(dialog.len-1)
             subterm = terms[dialog.len-1].split(";")
             # Отправка текста в ТГ
@@ -101,9 +110,9 @@ async def show1_5(update, context):
     dialog.len = len(terms)
     iterms1_3 = []
     # пролистывание терминов
-    while dialog.len >= 0:
+    while dialog.len >= 1:
        # await send_text(update, context, terms[dialog.len - 1] + " - " + descr[dialog.len - 1] + str(terms[dialog.len-1].startswith('1.3')))
-        if terms[dialog.len-1].startswith('1.5') == True:
+        if terms[dialog.len-1].startswith('1.5;') == True:
             iterms1_3.append(dialog.len-1)
             subterm = terms[dialog.len-1].split(";")
             # Отправка текста в ТГ
@@ -123,9 +132,9 @@ async def show1_7(update, context):
     dialog.len = len(terms)
     iterms1_3 = []
     # пролистывание терминов
-    while dialog.len >= 0:
+    while dialog.len >= 1:
        # await send_text(update, context, terms[dialog.len - 1] + " - " + descr[dialog.len - 1] + str(terms[dialog.len-1].startswith('1.3')))
-        if terms[dialog.len-1].startswith('1.7') == True:
+        if terms[dialog.len-1].startswith('1.7;') == True:
             iterms1_3.append(dialog.len-1)
             subterm = terms[dialog.len-1].split(";")
             # Отправка текста в ТГ
@@ -145,9 +154,9 @@ async def show1_11(update, context):
     dialog.len = len(terms)
     iterms1_3 = []
     # пролистывание терминов
-    while dialog.len >= 0:
+    while dialog.len >= 1:
        # await send_text(update, context, terms[dialog.len - 1] + " - " + descr[dialog.len - 1] + str(terms[dialog.len-1].startswith('1.3')))
-        if terms[dialog.len-1].startswith('1.11') == True:
+        if terms[dialog.len-1].startswith('1.11;') == True:
             iterms1_3.append(dialog.len-1)
             subterm = terms[dialog.len-1].split(";")
             # Отправка текста в ТГ
@@ -167,9 +176,9 @@ async def show2_1(update, context):
     dialog.len = len(terms)
     iterms1_3 = []
     # пролистывание терминов
-    while dialog.len >= 0:
+    while dialog.len >= 1:
        # await send_text(update, context, terms[dialog.len - 1] + " - " + descr[dialog.len - 1] + str(terms[dialog.len-1].startswith('1.3')))
-        if terms[dialog.len-1].startswith('2.1') == True:
+        if terms[dialog.len-1].startswith('2.1;') == True:
             iterms1_3.append(dialog.len-1)
             subterm = terms[dialog.len-1].split(";")
             # Отправка текста в ТГ
@@ -189,9 +198,9 @@ async def show2_4(update, context):
     dialog.len = len(terms)
     iterms1_3 = []
     # пролистывание терминов
-    while dialog.len >= 0:
+    while dialog.len >= 1:
        # await send_text(update, context, terms[dialog.len - 1] + " - " + descr[dialog.len - 1] + str(terms[dialog.len-1].startswith('1.3')))
-        if terms[dialog.len-1].startswith('2.4') == True:
+        if terms[dialog.len-1].startswith('2.4;') == True:
             iterms1_3.append(dialog.len-1)
             subterm = terms[dialog.len-1].split(";")
             # Отправка текста в ТГ
@@ -211,9 +220,9 @@ async def show2_7(update, context):
     dialog.len = len(terms)
     iterms1_3 = []
     # пролистывание терминов
-    while dialog.len >= 0:
+    while dialog.len >= 1:
        # await send_text(update, context, terms[dialog.len - 1] + " - " + descr[dialog.len - 1] + str(terms[dialog.len-1].startswith('1.3')))
-        if terms[dialog.len-1].startswith('2.7') == True:
+        if terms[dialog.len-1].startswith('2.7;') == True:
             iterms1_3.append(dialog.len-1)
             subterm = terms[dialog.len-1].split(";")
             # Отправка текста в ТГ
@@ -233,15 +242,62 @@ async def show2_9(update, context):
     dialog.len = len(terms)
     iterms1_3 = []
     # пролистывание терминов
-    while dialog.len >= 0:
+    while dialog.len >= 1:
        # await send_text(update, context, terms[dialog.len - 1] + " - " + descr[dialog.len - 1] + str(terms[dialog.len-1].startswith('1.3')))
-        if terms[dialog.len-1].startswith('2.9') == True:
+        if terms[dialog.len-1].startswith('2.9;') == True:
             iterms1_3.append(dialog.len-1)
             subterm = terms[dialog.len-1].split(";")
             # Отправка текста в ТГ
             await send_text(update, context, subterm[2] + " - " + descr[dialog.len-1])
         dialog.len -= 1
 
+# пролистываем изучаемые термины выбранного раздела через дефис
+async def show2_10(update, context):
+    dialog.mode = "show2_10"
+    dialog.ind_choice = []
+    # загрузка терминов и описаний в список(массив данных)
+    terms = load_terms("terms")
+    descr = load_descr("descr")
+    # Пригласительный текст из messages
+    text = """Выбрали повторение 2.10""".format(a = str(load_message("show")), \
+                                                    b = str(dialog.mode.replace('show', '')), \
+                                                    c = str(len(terms)) \
+                                                        )
+    await send_html(update, context, text)
+
+    dialog.len = len(terms)
+    iterms1_3 = []
+    # пролистывание терминов
+    while dialog.len >= 1:
+       # await send_text(update, context, terms[dialog.len - 1] + " - " + descr[dialog.len - 1] + str(terms[dialog.len-1].startswith('1.3')))
+        if terms[dialog.len-1].startswith('2.10;') == True:
+            iterms1_3.append(dialog.len-1)
+            subterm = terms[dialog.len-1].split(";")
+            # Отправка текста в ТГ str(dialog.len) + " - " +
+            await send_text(update, context, subterm[2] + " - " + descr[dialog.len-1])
+        dialog.len -= 1
+
+# пролистываем изучаемые термины выбранного раздела через дефис
+async def show2_12(update, context):
+    dialog.mode = "show2_12"
+    dialog.ind_choice = []
+    # Пригласительный текст из messages
+    text = """Выбрали повторение 2.12""".format(a = str(load_message("show")), b = str(dialog.mode.replace('show', '')))
+    await send_text(update, context, text)
+    # загрузка терминов и описаний в список(массив данных)
+    terms = load_terms("terms")
+    descr = load_descr("descr")
+    dialog.len = len(terms)
+    iterms1_3 = []
+    # пролистывание терминов
+    while dialog.len >= 1:
+       # await send_text(update, context, terms[dialog.len - 1] + " - " + descr[dialog.len - 1] + str(terms[dialog.len-1].startswith('1.3')))
+        if terms[dialog.len-1].startswith('2.12;') == True:
+            iterms1_3.append(dialog.len-1)
+            subterm = terms[dialog.len-1].split(";")
+            # Отправка текста в ТГ str(dialog.len) + " - " +
+            await send_text(update, context, subterm[2] + " - " + descr[dialog.len-1])
+        dialog.len -= 1
 
 async def show_dialog(update, context):
     text = update.message.text
@@ -283,11 +339,10 @@ async def game(update, context):
         #text = load_message("game")
         #await send_text(update, context, text)
         dialog.len = len(terms_all)
-
         # запоминание терминов нужного раздела
         while dialog.len >= 0:
             # await send_text(update, context, terms[dialog.len - 1] + " - " + descr[dialog.len - 1] + str(terms[dialog.len-1].startswith('1.3')))
-            if terms_all[dialog.len - 1].startswith('1.3') == True:
+            if terms_all[dialog.len - 1].startswith('1.3;') == True:
                 subterm = terms_all[dialog.len - 1].split(";")
                 # Заполнение массива значениями из нужного раздела ТГ
                 terms.append(subterm[2])
@@ -301,11 +356,10 @@ async def game(update, context):
         #text = load_message("game")
         #await send_text(update, context, text)
         dialog.len = len(terms_all)
-
         # запоминание терминов нужного раздела
         while dialog.len >= 0:
             # await send_text(update, context, terms[dialog.len - 1] + " - " + descr[dialog.len - 1] + str(terms[dialog.len-1].startswith('1.3')))
-            if terms_all[dialog.len - 1].startswith('1.5') == True:
+            if terms_all[dialog.len - 1].startswith('1.5;') == True:
                 subterm = terms_all[dialog.len - 1].split(";")
                 # Заполнение массива значениями из нужного раздела ТГ
                 terms.append(subterm[2])
@@ -319,11 +373,10 @@ async def game(update, context):
         #text = load_message("game")
         #await send_text(update, context, text)
         dialog.len = len(terms_all)
-
         # запоминание терминов нужного раздела
         while dialog.len >= 0:
             # await send_text(update, context, terms[dialog.len - 1] + " - " + descr[dialog.len - 1] + str(terms[dialog.len-1].startswith('1.3')))
-            if terms_all[dialog.len - 1].startswith('1.7') == True:
+            if terms_all[dialog.len - 1].startswith('1.7;') == True:
                 subterm = terms_all[dialog.len - 1].split(";")
                 # Заполнение массива значениями из нужного раздела ТГ
                 terms.append(subterm[2])
@@ -331,16 +384,16 @@ async def game(update, context):
                 img.append(subterm[1])
             dialog.len -= 1
         dialog.len = len(terms)
+
     elif dialog.mode == "show1_11" or dialog.mode == "game1_11":
         dialog.mode = "game1_11"
         text = load_message("game")
         await send_text(update, context, text)
         dialog.len = len(terms_all)
-
         # запоминание терминов нужного раздела
         while dialog.len >= 0:
             # await send_text(update, context, terms[dialog.len - 1] + " - " + descr[dialog.len - 1] + str(terms[dialog.len-1].startswith('1.3')))
-            if terms_all[dialog.len - 1].startswith('1.11') == True:
+            if terms_all[dialog.len - 1].startswith('1.11;') == True:
                 subterm = terms_all[dialog.len - 1].split(";")
                 # Заполнение массива значениями из нужного раздела ТГ
                 terms.append(subterm[2])
@@ -354,11 +407,10 @@ async def game(update, context):
         #text = load_message("game")
         #await send_text(update, context, text)
         dialog.len = len(terms_all)
-
         # запоминание терминов нужного раздела
         while dialog.len >= 0:
             # await send_text(update, context, terms[dialog.len - 1] + " - " + descr[dialog.len - 1] + str(terms[dialog.len-1].startswith('1.3')))
-            if terms_all[dialog.len - 1].startswith('2.1') == True:
+            if terms_all[dialog.len - 1].startswith('2.1;') == True:
                 subterm = terms_all[dialog.len - 1].split(";")
                 # Заполнение массива значениями из нужного раздела ТГ
                 terms.append(subterm[2])
@@ -372,11 +424,10 @@ async def game(update, context):
         text = load_message("game")
         await send_text(update, context, text)
         dialog.len = len(terms_all)
-
         # запоминание терминов нужного раздела
         while dialog.len >= 0:
             # await send_text(update, context, terms[dialog.len - 1] + " - " + descr[dialog.len - 1] + str(terms[dialog.len-1].startswith('1.3')))
-            if terms_all[dialog.len - 1].startswith('2.4') == True:
+            if terms_all[dialog.len - 1].startswith('2.4;') == True:
                 subterm = terms_all[dialog.len - 1].split(";")
                 # Заполнение массива значениями из нужного раздела ТГ
                 terms.append(subterm[2])
@@ -384,16 +435,16 @@ async def game(update, context):
                 img.append(subterm[1])
             dialog.len -= 1
         dialog.len = len(terms)
+
     elif dialog.mode == "show2_7" or dialog.mode == "game2_7":
         dialog.mode = "game2_7"
         #text = load_message("game")
         #await send_text(update, context, text)
         dialog.len = len(terms_all)
-
         # запоминание терминов нужного раздела
         while dialog.len >= 0:
             # await send_text(update, context, terms[dialog.len - 1] + " - " + descr[dialog.len - 1] + str(terms[dialog.len-1].startswith('1.3')))
-            if terms_all[dialog.len - 1].startswith('2.7') == True:
+            if terms_all[dialog.len - 1].startswith('2.7;') == True:
                 subterm = terms_all[dialog.len - 1].split(";")
                 # Заполнение массива значениями из нужного раздела ТГ
                 terms.append(subterm[2])
@@ -401,16 +452,50 @@ async def game(update, context):
                 img.append(subterm[1])
             dialog.len -= 1
         dialog.len = len(terms)
+
     elif dialog.mode == "show2_9" or dialog.mode == "game2_9":
         dialog.mode = "game2_9"
         #text = load_message("game")
         #await send_text(update, context, text)
         dialog.len = len(terms_all)
-
         # запоминание терминов нужного раздела
         while dialog.len >= 0:
             # await send_text(update, context, terms[dialog.len - 1] + " - " + descr[dialog.len - 1] + str(terms[dialog.len-1].startswith('1.3')))
-            if terms_all[dialog.len - 1].startswith('2.9') == True:
+            if terms_all[dialog.len - 1].startswith('2.9;') == True:
+                subterm = terms_all[dialog.len - 1].split(";")
+                # Заполнение массива значениями из нужного раздела ТГ
+                terms.append(subterm[2])
+                descr.append(descr_all[dialog.len - 1])
+                img.append(subterm[1])
+            dialog.len -= 1
+        dialog.len = len(terms)
+
+    elif dialog.mode == "show2_10" or dialog.mode == "game2_10":
+        dialog.mode = "game2_10"
+        #text = load_message("game")
+        #await send_text(update, context, text)
+        dialog.len = len(terms_all)
+        # запоминание терминов нужного раздела
+        while dialog.len >= 0:
+            # await send_text(update, context, terms[dialog.len - 1] + " - " + descr[dialog.len - 1] + str(terms[dialog.len-1].startswith('1.3')))
+            if terms_all[dialog.len - 1].startswith('2.10;') == True:
+                subterm = terms_all[dialog.len - 1].split(";")
+                # Заполнение массива значениями из нужного раздела ТГ
+                terms.append(subterm[2])
+                descr.append(descr_all[dialog.len - 1])
+                img.append(subterm[1])
+            dialog.len -= 1
+        dialog.len = len(terms)
+
+    elif dialog.mode == "show2_12" or dialog.mode == "game2_12":
+        dialog.mode = "game2_12"
+        #text = load_message("game")
+        #await send_text(update, context, text)
+        dialog.len = len(terms_all)
+        # запоминание терминов нужного раздела
+        while dialog.len >= 0:
+            # await send_text(update, context, terms[dialog.len - 1] + " - " + descr[dialog.len - 1] + str(terms[dialog.len-1].startswith('1.3')))
+            if terms_all[dialog.len - 1].startswith('2.12;') == True:
                 subterm = terms_all[dialog.len - 1].split(";")
                 # Заполнение массива значениями из нужного раздела ТГ
                 terms.append(subterm[2])
@@ -430,24 +515,29 @@ async def game(update, context):
     dialog.secret_term = terms[dialog.term_choice]
     dialog.secret_img = img[dialog.term_choice]
     dialog.secret_len = len(dialog.secret_term)
-    await send_text(update, context, "Длина термина: " + str(dialog.secret_len))
+    # await send_text(update, context, "Длина термина: " + str(dialog.secret_len))
     secret_index = 0
     dialog.string = []
     while secret_index < dialog.secret_len:
         dialog.string.append('?')
         secret_index += 1
 
-    await send_html(update, context, "термин связан с понятием: " + descr[dialog.term_choice])
-    await send_text(update, context, "термин зашифрован: " + str("".join(dialog.string)))
+    await send_html(update, context, "Функция/метод выполняют: " + descr[dialog.term_choice])
+    # await send_text(update, context, "термин зашифрован: " + str("".join(dialog.string)))
+    await send_text(update, context, str("".join(dialog.string)))
     dialog.err = False
 
 async def game_dialog(update, context):
-    if dialog.mode == "game" or dialog.mode == "game1_3" or dialog.mode == "game1_5" or dialog.mode == "game1_7" or dialog.mode == "game1_11" or dialog.mode == "game2_1" or dialog.mode == "game2_4" or dialog.mode == "game2_7" or dialog.mode == "game2_9":
+    if dialog.mode == "game" or dialog.mode == "game1_3" or dialog.mode == "game1_5" or dialog.mode == "game1_7" \
+        or dialog.mode == "game1_11" or dialog.mode == "game2_1" or dialog.mode == "game2_4" \
+        or dialog.mode == "game2_7" or dialog.mode == "game2_9" or dialog.mode == "game2_10" \
+        or dialog.mode == "game2_12":
         text = update.message.text
     #    await send_text(update, context, str("".join(dialog.string)))
         dialog.string1 = update_string(text, dialog.secret_term, dialog.string)
-        await send_html(update, context,
-                        """{0} из {1}""".format(str(dialog.string1), str(dialog.secret_term)))
+    # Задел для облегченного варианта
+    #    await send_html(update, context, """{0} из {1}""".format(str(dialog.string1), str(dialog.secret_term)))
+    #    await send_html(update, context, """{0}""".format(str(dialog.string1), str(dialog.secret_term)))
         if dialog.string1 != dialog.secret_term:
             await send_html(update, context, dialog.string1)
             dialog.string = dialog.string1
@@ -540,6 +630,8 @@ app.add_handler(CommandHandler("show2_1", show2_1))
 app.add_handler(CommandHandler("show2_4", show2_4))
 app.add_handler(CommandHandler("show2_7", show2_7))
 app.add_handler(CommandHandler("show2_9", show2_9))
+app.add_handler(CommandHandler("show2_10", show2_10))
+app.add_handler(CommandHandler("show2_12", show2_12))
 #app.add_handler(CommandHandler("show2_9", show2_9))
 app.add_handler(CommandHandler("game", game))
 app.add_handler(CommandHandler("game1_3", game))
@@ -550,6 +642,8 @@ app.add_handler(CommandHandler("game2_1", game))
 app.add_handler(CommandHandler("game2_4", game))
 app.add_handler(CommandHandler("game2_7", game))
 app.add_handler(CommandHandler("game2_9", game))
+app.add_handler(CommandHandler("game2_10", game))
+app.add_handler(CommandHandler("game2_12", game))
 
 # Обработчик текстов, которые пишутся в чат
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, hello))
