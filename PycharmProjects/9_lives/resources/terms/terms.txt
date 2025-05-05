@@ -40,7 +40,6 @@
 2.4;32;s.swapcase()
 2.4;33;s.find()
 2.4;34;s.rfind()
-2.4;35;s.index()
 2.4;35;s.index('sub')
 2.4;36;s.count('sub')
 1.11;37;//
@@ -78,7 +77,7 @@
 1.11;67;math.floor()
 1.11;68;math.floor()
 1.11;69;math.ceil()
-2.4;70;s.split()
+2.4;70;s.split(',')
 2.7;71;repr()
 2.7;72;\n
 2.7;73;\t
@@ -109,3 +108,37 @@
 2.10;96;print(f"{var1:>25}")
 2.10;97;print(f"{var1:^25}")
 2.10;98;print(f"{var1:-^25}")
+2.13;99;list
+2.13;100;0
+2.13;100;-1
+2.13;101;print(lst[a:b])
+2.13;102;print(lst[a:-1])
+2.13;103;print(lst[a:])
+2.13;104;print(lst[:a])
+2.13;105;print(lst[:])
+2.13;106;b = a
+2.13;107;b = a[:]
+2.13;108;print(lst[::2])
+2.13;109;print(lst[3:7:3])
+2.13;110;print(lst[::-1])
+2.14;111;lst.append('sub')
+2.14;112;lst.insert(i,'sub')
+2.14;113;lst.extend('sub')
+2.14;114;lst.extend([num])
+2.14;115;lst.clear()
+2.14;116;lst.pop(i)
+2.14;117;lst.remove('sub')
+2.14;118;lst.copy()
+2.14;119;lst.count('sub')
+2.14;120;lst.index('sub')
+2.14;121;lst.reverse()
+2.14;122;lst.sort()
+2.14;123;lst.sort(reverse=True)
+3.1;124;if 5 > 1 and 5 > 4:
+3.1;125;if True:
+3.1;126;if bool(100):
+3.1;127;if 5:
+3.1;128;IndentationError
+3.1;129;SyntaxError: expected ':'
+3.1;130;IndentationError: expected an indented block after 'if' statement on line 1
+3.1;131;pass
